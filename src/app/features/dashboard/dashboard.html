@@ -1,4 +1,13 @@
 <section class="Dashboard">
+    <div class="profile">
+        <img [src]="profileImage">
+        <div>
+            <h2>{{loggedInUser}}</h2>
+            <p>{{role}}</p>
+            <input [disabled]="!isActive"> 
+            <input [value]="loggedInUser">
+        </div>
+    </div>
     <h1>Welcome {{loggedInUser}}</h1>
     <p>{{hospitalName}}</p>
     <div class="cards">
@@ -17,11 +26,6 @@
         <div class="card">
             <h3>Revenue Count</h3>
             <p>{{todayRevenue}}</p>
-        </div>
-        <div class="card">
-            <h3>Growth</h3>
-            <p>Doctor Growth: {{doctorGrowth}}  %</p>
-            <p>Patient Growth: {{patientGrowth}} %</p>
         </div>
         <div class="card">
             <h3>Total People</h3>

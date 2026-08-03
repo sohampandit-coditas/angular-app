@@ -13,6 +13,7 @@ export class Dashboard {
   patientCount=152;
   appointmentCount=38;
   todayRevenue=18500;
-  doctorGrowth=10;
-  patientGrowth=12;
+  profileImage="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200";
+  role="Administrator";
+  isActive=true;
 }
