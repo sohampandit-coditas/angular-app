@@ -32,4 +32,19 @@
             <p>{{patientCount+doctorCount}}</p>
         </div>
     </div>
+    <div class="actions">
+        <button (click)="refreshDashboard()">
+            Refresh Dashboard
+        </button>
+        <button (click)="addDoctor()">
+            Add Doctor
+        </button>
+        <button (click)="resetDashboard()">
+            Reset Dasboard
+        </button>
+    </div>
+    <p>
+        Last Updated: {{lastUpdated}}
+    </p>
+    <button (click)="logEvent($event)"></button>
 </section>
