@@ -7,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrl: './dashboard.css',
 })
 export class Dashboard {
-
+  hospitalName="AarogyaCare";
+  loggedInUser="Soham";
+  doctorCount=24;
+  patientCount=152;
+  appointmentCount=38;
+  todayRevenue=18500;
+  doctorGrowth=10;
+  patientGrowth=12;
 }

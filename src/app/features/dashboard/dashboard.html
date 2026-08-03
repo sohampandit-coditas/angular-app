@@ -1,3 +1,31 @@
-<section>
-    <h1>Dashboard</h1>
+<section class="Dashboard">
+    <h1>Welcome {{loggedInUser}}</h1>
+    <p>{{hospitalName}}</p>
+    <div class="cards">
+        <div class="card">
+            <h3>Doctors Count</h3>
+            <p>{{doctorCount}}</p>
+        </div>
+        <div class="card">
+            <h3>Patients Count</h3>
+            <p>{{patientCount}}</p>
+        </div>
+        <div class="card">
+            <h3>Appointments Count</h3>
+            <p>{{appointmentCount}}</p>
+        </div>
+        <div class="card">
+            <h3>Revenue Count</h3>
+            <p>{{todayRevenue}}</p>
+        </div>
+        <div class="card">
+            <h3>Growth</h3>
+            <p>Doctor Growth: {{doctorGrowth}}  %</p>
+            <p>Patient Growth: {{patientGrowth}} %</p>
+        </div>
+        <div class="card">
+            <h3>Total People</h3>
+            <p>{{patientCount+doctorCount}}</p>
+        </div>
+    </div>
 </section>
