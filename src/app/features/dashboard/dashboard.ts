@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { DashboardCard } from '../../shared/dashboard-card/dashboard-card';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [],
+  imports: [DashboardCard],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
 })

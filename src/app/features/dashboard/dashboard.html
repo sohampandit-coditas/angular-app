@@ -11,22 +11,22 @@
     <h1>Welcome {{loggedInUser}}</h1>
     <p>{{hospitalName}}</p>
     <div class="cards">
-        <div class="card">
-            <h3>Doctors Count</h3>
-            <p>{{doctorCount}}</p>
-        </div>
-        <div class="card">
-            <h3>Patients Count</h3>
-            <p>{{patientCount}}</p>
-        </div>
-        <div class="card">
-            <h3>Appointments Count</h3>
-            <p>{{appointmentCount}}</p>
-        </div>
-        <div class="card">
-            <h3>Revenue Count</h3>
-            <p>{{todayRevenue}}</p>
-        </div>
+        <app-dashboard-card
+            [title]="'Doctors'"
+            [value]="doctorCount">
+        </app-dashboard-card>
+        <app-dashboard-card
+            [title]="'Patients'"
+            [value]="patientCount">
+        </app-dashboard-card>
+        <app-dashboard-card
+            [title]="'Appointments'"
+            [value]="appointmentCount">
+        </app-dashboard-card>
+        <app-dashboard-card
+            [title]="'Revenue'"
+            [value]="todayRevenue">
+        </app-dashboard-card>
         <div class="card">
             <h3>Total People</h3>
             <p>{{patientCount+doctorCount}}</p>
