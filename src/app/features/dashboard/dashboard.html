@@ -13,7 +13,7 @@
     <div class="cards">
         <app-dashboard-card
             [title]="'Doctors'"
-            [value]="doctorCount"
+            [value]="doctorCount()"
             (refresh)="refreshDashboard()"> 
         </app-dashboard-card>
         <app-dashboard-card
@@ -30,7 +30,7 @@
         </app-dashboard-card>
         <app-dashboard-card
             [title]="'Total Count'"
-            [value]="doctorCount+patientCount">
+            [value]="totalPeople()">
         </app-dashboard-card>
     </div>
     <div class="actions">
