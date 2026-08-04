@@ -18,7 +18,7 @@
         </app-dashboard-card>
         <app-dashboard-card
             [title]="'Patients'"
-            [value]="patientCount">
+            [value]="patientCount()">
         </app-dashboard-card>
         <app-dashboard-card
             [title]="'Appointments'"
@@ -48,4 +48,8 @@
         Last Updated: {{lastUpdated}}
     </p>
     <button (click)="logEvent($event)"></button>
+
+    <div class="card">
+        <p>{{hospitalStatus()}}</p>
+    </div>
 </section>

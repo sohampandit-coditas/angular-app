@@ -12,7 +12,7 @@ export class Dashboard {
   hospitalName="AarogyaCare";
   loggedInUser="Soham";
   doctorCount=signal(24);
-  patientCount=152;
+  patientCount=signal(152);
   appointmentCount=38;
   todayRevenue=18500;
   profileImage="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200";
@@ -20,8 +20,8 @@ export class Dashboard {
   isActive=true;
   lastUpdated="Never";
   refreshDashboard(){
-    this.doctorCount.update(value=>value=27);
-    this.patientCount=157;
+    this.doctorCount.set(27);
+    this.patientCount.set(157);
     this.appointmentCount=42;
     this.lastUpdated="Just Now";
   }
@@ -31,8 +31,8 @@ export class Dashboard {
   }
 
   resetDashboard(){
-    this.doctorCount.update(value=>value=24);
-    this.patientCount=152;
+    this.doctorCount.set(26);
+    this.patientCount.set(160);
     this.appointmentCount=38;
     this.lastUpdated="Reset";
   }
@@ -42,6 +42,14 @@ export class Dashboard {
   }
 
   totalPeople=computed(()=>{
-    return this.doctorCount()+this.patientCount;
+    return this.doctorCount()+this.patientCount();
+  })
+
+  hospitalStatus=computed(()=>{
+    if(this.doctorCount()>30){
+      return "Enough Doctors"
+    };
+
+    return "Needs Hiring";
   })
 }
