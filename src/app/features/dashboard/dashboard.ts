@@ -1,6 +1,7 @@
 import { Component, computed } from '@angular/core';
 import { DashboardCard } from '../../shared/dashboard-card/dashboard-card';
-import { signal } from '@angular/core';
+import { signal , effect} from '@angular/core';
+
 @Component({
   selector: 'app-dashboard',
   imports: [DashboardCard],
@@ -9,6 +10,22 @@ import { signal } from '@angular/core';
 })
 
 export class Dashboard {
+  constructor(){
+    effect(()=>{
+      console.log('Doctor count changed',this.doctorCount());
+    });
+
+    effect(()=>{
+      localStorage.setItem(
+        'doctorCount',
+        this.doctorCount().toString()
+      );
+    });
+
+    effect(()=>{
+      console.log("Total people Changed",this.totalPeople());
+    });
+  }
   hospitalName="AarogyaCare";
   loggedInUser="Soham";
   doctorCount=signal(24);
