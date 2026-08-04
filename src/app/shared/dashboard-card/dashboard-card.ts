@@ -1,4 +1,4 @@
-import { Component, input, output } from '@angular/core';
+import { Component, input, output,OnChanges,SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard-card',
@@ -12,5 +12,8 @@ export class DashboardCard {
   refresh=output<void>();
   onRefreshClicked(){
     this.refresh.emit();
+  }
+  ngOnChanges(changes:SimpleChanges){
+    console.log(changes);
   }
 }

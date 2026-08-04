@@ -5,7 +5,7 @@
             <h2>{{loggedInUser}}</h2>
             <p>{{role}}</p>
             <input [disabled]="!isActive"> 
-            <input [value]="loggedInUser">
+            <input #userNameInput [value]="loggedInUser">
         </div>
     </div>
     <h1>Welcome {{loggedInUser}}</h1>

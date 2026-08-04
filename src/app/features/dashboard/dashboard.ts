@@ -1,7 +1,7 @@
 import { Component, computed } from '@angular/core';
 import { DashboardCard } from '../../shared/dashboard-card/dashboard-card';
 import { signal , effect} from '@angular/core';
-
+import { ViewChild,ElementRef,AfterViewInit } from '@angular/core';
 @Component({
   selector: 'app-dashboard',
   imports: [DashboardCard],
@@ -9,8 +9,19 @@ import { signal , effect} from '@angular/core';
   styleUrl: './dashboard.css',
 })
 
-export class Dashboard {
+
+
+export class Dashboard implements AfterViewInit {
+  
+  @ViewChild('userNameInput')
+  userNameInput!:ElementRef<HTMLInputElement>;
+
+  ngAfterViewInit(){
+    this.userNameInput.nativeElement.focus();
+    this.userNameInput.nativeElement.style.backgroundColor="lightyellow";
+  }
   constructor(){
+    console.log("Constructor");
     effect(()=>{
       console.log('Doctor count changed',this.doctorCount());
     });
@@ -25,6 +36,10 @@ export class Dashboard {
     effect(()=>{
       console.log("Total people Changed",this.totalPeople());
     });
+  }
+  ngOnInit(){
+    console.log("ngOnInit");
+    this.lastUpdated="Dashboard loaded";
   }
   hospitalName="AarogyaCare";
   loggedInUser="Soham";
