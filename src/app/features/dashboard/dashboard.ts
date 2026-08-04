@@ -7,6 +7,7 @@ import { DashboardCard } from '../../shared/dashboard-card/dashboard-card';
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
 })
+
 export class Dashboard {
   hospitalName="AarogyaCare";
   loggedInUser="Soham";

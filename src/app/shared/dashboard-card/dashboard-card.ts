@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard-card',
@@ -8,5 +8,9 @@ import { Component, input } from '@angular/core';
 })
 export class DashboardCard {
   title=input.required<string>();
-  value=input.required<string>();
+  value=input.required<number>();
+  refresh=output<void>();
+  onRefreshClicked(){
+    this.refresh.emit();
+  }
 }
