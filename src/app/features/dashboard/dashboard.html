@@ -12,23 +12,28 @@
     <p>{{hospitalService.hospitalName}}</p>
     <div class="cards">
         <app-dashboard-card
+            appHighlight
             [title]="'Doctors'"
             [value]="hospitalService.doctorCount()"
             (refresh)="hospitalService.refreshDashboard()"> 
         </app-dashboard-card>
         <app-dashboard-card
+            appHighlight
             [title]="'Patients'"
             [value]="hospitalService.patientCount()">
         </app-dashboard-card>
         <app-dashboard-card
+            appHighlight
             [title]="'Appointments'"
             [value]="hospitalService.appointmentCount()">
         </app-dashboard-card>
         <app-dashboard-card
+            appHighlight
             [title]="'Revenue'"
             [value]="hospitalService.todayRevenue()">
         </app-dashboard-card>
         <app-dashboard-card
+            appHighlight
             [title]="'Total Count'"
             [value]="hospitalService.totalPeople()">
         </app-dashboard-card>

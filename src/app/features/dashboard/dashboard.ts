@@ -3,9 +3,10 @@ import { DashboardCard } from '../../shared/dashboard-card/dashboard-card';
 import { signal , effect} from '@angular/core';
 import { ViewChild,ElementRef,AfterViewInit } from '@angular/core';
 import { Hospital } from '../../core/services/hospital';
+import { HighlightDirective } from '../../shared/directives/highlight';
 @Component({
   selector: 'app-dashboard',
-  imports: [DashboardCard],
+  imports: [DashboardCard,HighlightDirective],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css',
 })
