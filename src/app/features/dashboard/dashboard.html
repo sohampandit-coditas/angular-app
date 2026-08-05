@@ -11,6 +11,48 @@
     <h1>Welcome {{hospitalService.loggedInUser}}</h1>
     <p>{{hospitalService.hospitalName}}</p>
     <div class="cards">
+        <div class="card">
+            <h3>Doctors</h3>
+            @for(doctor of hospitalService.doctors(); track doctor.id){
+                <p>
+                    {{$index+1}}
+                    {{doctor.doctor}}
+                    {{doctor.speciality}}
+                </p>
+            }
+        </div>
+        <div class="card">
+            <h3>Appointment Status</h3>
+            @switch(hospitalService.appointmentStatus()){
+                @case("Pending"){
+                    <p>🟡Pending</p>
+                }
+                @case("Appointed"){
+                    <p>🟢Appointed</p>
+                }
+                @case("Completed"){
+                    <p>🟢Consultation Completed</p>
+                }
+                @case("Cancelled"){
+                    <p>🔴Appointment Cancelled</p>
+                }
+                @default {
+                    <p>Status Unknown</p>
+                }
+            }
+        </div>
+        <div>
+             <button (click)="hospitalService.setAppointmentStatus('Pending')">
+                Pending
+            </button>
+            <button (click)="hospitalService.setAppointmentStatus('Appointed')">
+                Appointed
+            </button>
+            <button (click)="hospitalService.setAppointmentStatus('Cancelled')">
+                Cancelled
+            </button>
+        </div>
+
         <app-dashboard-card
             appHighlight
             [title]="'Doctors'"

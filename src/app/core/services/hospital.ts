@@ -36,4 +36,28 @@ export class Hospital {
   totalPeople=computed(()=>{
     return this.doctorCount()+this.patientCount();
   })
+
+  doctors=signal([
+    {
+      id:1,
+      doctor:"Dr.Alok",
+      speciality:"Cardiology"
+    },
+    {
+      id:2,
+      doctor:"Dr.Ashok",
+      speciality:"Orthopaedics"
+    },
+    {
+      id:3,
+      doctor:"Dr.Sakshi",
+      speciality:"Oncology"
+    }
+
+  ]);
+
+  appointmentStatus=signal("Pending");
+  setAppointmentStatus(status:string){
+    this.appointmentStatus.set(status);
+  }
 }
