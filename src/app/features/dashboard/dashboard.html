@@ -1,55 +1,55 @@
 <section class="dashboard">
     <div class="profile">
-        <img [src]="profileImage">
+        <img [src]="hospitalService.profileImage">
         <div>
-            <h2>{{loggedInUser}}</h2>
-            <p>{{role}}</p>
-            <input [disabled]="!isActive"> 
-            <input #userNameInput [value]="loggedInUser">
+            <h2>{{hospitalService.loggedInUser}}</h2>
+            <p>{{hospitalService.role}}</p>
+            <input [disabled]="!hospitalService.isActive"> 
+            <input #userNameInput [value]="hospitalService.loggedInUser">
         </div>
     </div>
-    <h1>Welcome {{loggedInUser}}</h1>
-    <p>{{hospitalName}}</p>
+    <h1>Welcome {{hospitalService.loggedInUser}}</h1>
+    <p>{{hospitalService.hospitalName}}</p>
     <div class="cards">
         <app-dashboard-card
             [title]="'Doctors'"
-            [value]="doctorCount()"
-            (refresh)="refreshDashboard()"> 
+            [value]="hospitalService.doctorCount()"
+            (refresh)="hospitalService.refreshDashboard()"> 
         </app-dashboard-card>
         <app-dashboard-card
             [title]="'Patients'"
-            [value]="patientCount()">
+            [value]="hospitalService.patientCount()">
         </app-dashboard-card>
         <app-dashboard-card
             [title]="'Appointments'"
-            [value]="appointmentCount">
+            [value]="hospitalService.appointmentCount()">
         </app-dashboard-card>
         <app-dashboard-card
             [title]="'Revenue'"
-            [value]="todayRevenue">
+            [value]="hospitalService.todayRevenue()">
         </app-dashboard-card>
         <app-dashboard-card
             [title]="'Total Count'"
-            [value]="totalPeople()">
+            [value]="hospitalService.totalPeople()">
         </app-dashboard-card>
     </div>
     <div class="actions">
-        <button (click)="refreshDashboard()">
+        <button (click)="hospitalService.refreshDashboard()">
             Refresh Dashboard
         </button>
-        <button (click)="addDoctor()">
+        <button (click)="hospitalService.addDoctor()">
             Add Doctor
         </button>
-        <button (click)="resetDashboard()">
+        <button (click)="hospitalService.resetDashboard()">
             Reset Dasboard
         </button>
     </div>
     <p>
-        Last Updated: {{lastUpdated}}
+        Last Updated: {{hospitalService.lastUpdated}}
     </p>
     <button (click)="logEvent($event)"></button>
 
     <div class="card">
-        <p>{{hospitalStatus()}}</p>
+        <p>{{hospitalService.hospitalStatus()}}</p>
     </div>
 </section>

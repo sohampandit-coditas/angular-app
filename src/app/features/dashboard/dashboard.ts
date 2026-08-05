@@ -2,6 +2,7 @@ import { Component, computed } from '@angular/core';
 import { DashboardCard } from '../../shared/dashboard-card/dashboard-card';
 import { signal , effect} from '@angular/core';
 import { ViewChild,ElementRef,AfterViewInit } from '@angular/core';
+import { Hospital } from '../../core/services/hospital';
 @Component({
   selector: 'app-dashboard',
   imports: [DashboardCard],
@@ -20,68 +21,30 @@ export class Dashboard implements AfterViewInit {
     this.userNameInput.nativeElement.focus();
     this.userNameInput.nativeElement.style.backgroundColor="lightyellow";
   }
-  constructor(){
+  constructor(public hospitalService:Hospital){
     console.log("Constructor");
     effect(()=>{
-      console.log('Doctor count changed',this.doctorCount());
+      console.log('Doctor count changed',hospitalService.doctorCount());
     });
 
     effect(()=>{
       localStorage.setItem(
         'doctorCount',
-        this.doctorCount().toString()
+        hospitalService.doctorCount().toString()
       );
     });
 
     effect(()=>{
-      console.log("Total people Changed",this.totalPeople());
+      console.log("Total people Changed",this.hospitalService.totalPeople());
     });
   }
+
   ngOnInit(){
     console.log("ngOnInit");
-    this.lastUpdated="Dashboard loaded";
-  }
-  hospitalName="AarogyaCare";
-  loggedInUser="Soham";
-  doctorCount=signal(24);
-  patientCount=signal(152);
-  appointmentCount=38;
-  todayRevenue=18500;
-  profileImage="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200";
-  role="Administrator";
-  isActive=true;
-  lastUpdated="Never";
-  refreshDashboard(){
-    this.doctorCount.set(27);
-    this.patientCount.set(157);
-    this.appointmentCount=42;
-    this.lastUpdated="Just Now";
+    this.hospitalService.lastUpdated="Dashboard loaded";
   }
 
-  addDoctor(){
-    this.doctorCount.update(value=>value+1);
-  }
-
-  resetDashboard(){
-    this.doctorCount.set(26);
-    this.patientCount.set(160);
-    this.appointmentCount=38;
-    this.lastUpdated="Reset";
-  }
-
-  logEvent(event:MouseEvent){
+    logEvent(event:MouseEvent){
     console.log(event);
   }
-
-  totalPeople=computed(()=>{
-    return this.doctorCount()+this.patientCount();
-  })
-
-  hospitalStatus=computed(()=>{
-    if(this.doctorCount()>30){
-      return "Enough Doctors"
-    };
-
-    return "Needs Hiring";
-  })
 }
