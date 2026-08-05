@@ -55,6 +55,17 @@
     <button (click)="logEvent($event)"></button>
 
     <div class="card">
-        <p>{{hospitalService.hospitalStatus()}}</p>
+        @if(hospitalService.doctorCount()>30){
+            <div class="card">
+                <h3>Status:</h3>
+                <p>Enough Doctors available</p>
+            </div>
+        }
+        @else {
+            <div class="card">
+                <h3>Status:</h3>
+                <p>Recruitment Needed!</p>
+            </div>
+        }
     </div>
 </section>

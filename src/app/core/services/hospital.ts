@@ -36,12 +36,4 @@ export class Hospital {
   totalPeople=computed(()=>{
     return this.doctorCount()+this.patientCount();
   })
-
-  hospitalStatus=computed(()=>{
-    if(this.doctorCount()>30){
-      return "Enough Doctors"
-    };
-
-    return "Needs Hiring";
-  })
 }
