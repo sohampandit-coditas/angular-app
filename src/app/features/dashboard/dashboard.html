@@ -52,27 +52,39 @@
                 Cancelled
             </button>
         </div>
-
-        <app-dashboard-card
-            appHighlight
-            [title]="'Doctors'"
-            [value]="hospitalService.doctorCount()"
-            (refresh)="hospitalService.refreshDashboard()"> 
-        </app-dashboard-card>
-        <app-dashboard-card
-            appHighlight
-            [title]="'Patients'"
-            [value]="hospitalService.patientCount()">
-        </app-dashboard-card>
+        @if(hospitalService.role==='Administrator'){
+            <ng-container>
+                <app-dashboard-card
+                    appHighlight
+                    [title]="'Doctors'"
+                    [value]="hospitalService.doctorCount()"
+                    (refresh)="hospitalService.refreshDashboard()"> 
+                    <button>
+                        View Doctors
+                    </button>
+                </app-dashboard-card>
+                <app-dashboard-card
+                    appHighlight
+                    [title]="'Patients'"
+                    [value]="hospitalService.patientCount()">
+                </app-dashboard-card>
+            </ng-container>
+        }
         <app-dashboard-card
             appHighlight
             [title]="'Appointments'"
             [value]="hospitalService.appointmentCount()">
+            <button>
+                Open Schedule
+            </button>
         </app-dashboard-card>
         <app-dashboard-card
             appHighlight
             [title]="'Revenue'"
             [value]="hospitalService.todayRevenue()">
+            <p style="color:green">
+                Today's growth
+            </p>
         </app-dashboard-card>
         <app-dashboard-card
             appHighlight
@@ -110,4 +122,10 @@
             </div>
         }
     </div>
+    <ng-template #welcomeTemplate>
+        <div class="card">
+            <h3>Welcome Doctor</h3>
+            <p>This template is created manually</p>
+        </div>
+    </ng-template> 
 </section>

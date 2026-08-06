@@ -1,8 +1,28 @@
 import { Injectable, signal, computed } from '@angular/core';
+import { Observable } from 'rxjs';
+
+const doctorObservable=new Observable<number>((observer)=>{
+    console.log('Preparing data...');
+    observer.next(24);
+    console.log("Second Value");
+    observer.next(25);
+    console.log("Third Value");
+    observer.next(26);
+  });
+
+console.log("Before Subscribing")
+
+doctorObservable.subscribe((value)=>{
+  console.log("Recieved", value);
+});
+
+console.log("After subscribing");
 
 @Injectable({
   providedIn: 'root',
 })
+
+
 export class Hospital {
   hospitalName="AarogyaCare";
   loggedInUser="Soham";
